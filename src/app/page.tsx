@@ -1,5 +1,4 @@
 import logo from '@/assets/logo.png';
-import './App.css';
 import VideoSelector from '@/components/VideoSelector/VideoSelector';
 import Fork from '@/components/Fork/Fork';
 

@@ -4,8 +4,10 @@
     width: 95%;
     max-width: 650px;
     padding: 10px;
+    box-sizing: border-box;
     position: absolute;
-    top: 79%;
+    top: auto;
+    bottom: 12px;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -86,7 +88,8 @@ input[type='range']::-webkit-slider-thumb {
 @media screen and (max-width: 720px) {
     .controls {
         width: 90%;
-        top: 49%;
+        top: auto;
+        bottom: 12px;
         left: 49.9%;
     }
 }
@@ -95,7 +98,8 @@ input[type='range']::-webkit-slider-thumb {
 @media screen and (min-device-width: 600px) and (max-device-width: 1280px) {
     .controls {
         width: 90%;
-        top: 49%;
+        top: auto;
+        bottom: 12px;
         left: 49.9%;
     }
 }

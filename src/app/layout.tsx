@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import './App.css';
 import VideoContextProvider from '@/components/VideoContextProvider/VideoContextProvider';
 
 const inter = Inter({ subsets: ['latin'] });

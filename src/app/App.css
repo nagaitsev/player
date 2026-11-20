@@ -101,6 +101,43 @@
     display: inline-block;
 }
 
+/* player screen: fit the video into the current browser viewport */
+.App-screen {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+.App-screen .App-header {
+    flex: 0 0 auto;
+}
+
+.App-screen .App-body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.App-screen .VideoPlayer {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.App-screen .VideoPlayer video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.App-screen .App-Video-Actions {
+    flex: 0 0 auto;
+}
+
 .hide {
     display: none;
 }

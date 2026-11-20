@@ -95,14 +95,25 @@ const VideoControls = (props: VideoControlsProps) => {
         });
         video.addEventListener('pause', () => {
             setPauseplayIcon(playIcon);
+            if (timeoutHandle) {
+                clearTimeout(timeoutHandle);
+                timeoutHandle = 0;
+            }
+            controls.current?.classList.add('hide');
         });
         video.addEventListener('play', () => {
             setPauseplayIcon(pauseIcon);
+            controls.current?.classList.remove('hide');
         });
         video.addEventListener('click', () => {
             playVideo();
         });
         videoContainer.addEventListener('mousemove', () => {
+            if (video.paused) {
+                controls.current?.classList.add('hide');
+                return;
+            }
+
             showControls();
             if (timeoutHandle) {
                 clearTimeout(timeoutHandle);
@@ -117,9 +128,11 @@ const VideoControls = (props: VideoControlsProps) => {
             if (!controls?.current) return;
             if (document.fullscreenElement === null) {
                 controls.current.style.top = '';
+                controls.current.style.bottom = '';
                 setEnableDisableFullscreenIcon(fullscreenIcon);
             } else {
                 controls.current.style.top = '90%';
+                controls.current.style.bottom = 'auto';
                 setEnableDisableFullscreenIcon(disableFullscreenIcon);
             }
         };
@@ -155,9 +168,11 @@ const VideoControls = (props: VideoControlsProps) => {
         if (document.fullscreenElement === null) {
             videoContainer.requestFullscreen();
             controls.current.style.top = '90%';
+            controls.current.style.bottom = 'auto';
         } else {
             document.exitFullscreen();
             controls.current.style.top = '';
+            controls.current.style.bottom = '';
         }
         setEnableDisableFullscreenIcon(
             document.fullscreenElement ? fullscreenIcon : disableFullscreenIcon
